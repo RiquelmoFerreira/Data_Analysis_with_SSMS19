@@ -27,10 +27,19 @@ ORDER BY total DESC;
 -- 3) Analyzing rental performance by identifying which films scored above average
 
 USE hashtagmovie
+WITH id_title AS (
+	SELECT id_movie, title
+	FROM movies
+	GROUP BY id_movie, title
+)
+
 SELECT 
-	*
-FROM rentals
-WHERE score >= (SELECT AVG(score) FROM rentals);
+	TOP (10) *
+FROM rentals as ren
+LEFT JOIN id_title
+	ON ren.id_movie = id_title.id_movie
+WHERE score >= (SELECT AVG(score) FROM alugueis)
+ORDER BY score DESC;
 
 
 -- 4) Creating Views to store the results
@@ -55,8 +64,16 @@ CREATE VIEW result2 AS
 
 
 CREATE VIEW result3 AS
-	USE hashtagmovie
+	WITH id_title AS (
+		SELECT id_movie, title
+		FROM movies
+		GROUP BY id_movie, title
+	)
+
 	SELECT 
-		*
-	FROM rentals
-	WHERE score >= (SELECT AVG(score) FROM rentals);
+		TOP (10) *
+	FROM rentals as ren
+	LEFT JOIN id_title
+		ON ren.id_movie = id_title.id_movie
+	WHERE score >= (SELECT AVG(score) FROM alugueis)
+	ORDER BY score DESC;
