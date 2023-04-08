@@ -7,6 +7,10 @@ This project was done during the practical training of the SQL case for Data Ana
 
 The objective of this project was to create a Dashboard with average prices and the TOP 10 Movies Above Average Rating using information from the hashtagmovies Database that belongs to Hashtag Progamação, SSMS 19 and Microsoft Excel were used for the analysis.
 
+*The Database was adapted for SSMS 19 and for the English language, but belongs to the Hashtag Programação group.
+
+Using the Bar charts we can analyze that the highest average price per genre would be for the Horror Genre, but in our Database there is only one production with this genre, so the highest real average price would be for Action and Adventure. Analyzing the same graph, but now only with titles released in 2011, we can see that the highest average price is for the Mystery and Suspense genre. Finally, we can see in a Treemap chart which are the TOP 10 films with an above average score.
+
 ## SSMS 19 Overview
 ![SSMSOverview](https://github.com/RiquelmoFerreira/Data_Analysis_with_SSMS19/blob/main/SQL.png)
 
